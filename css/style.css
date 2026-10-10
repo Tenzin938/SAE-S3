@@ -1,0 +1,117 @@
+:root {
+    --primary-red: #c8102e;
+    --dark-red: #900C1E;
+    --light-red-bg: #fff5f5;
+    --text-color: #1a1a1a;
+    --white: #ffffff;
+}
+
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #fbfbfb;
+}
+
+/* Navigation */
+header {
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+header nav ul li a:focus,
+.btn-primary:focus,
+.btn-secondary:focus {
+    outline: 3px solid #000000;
+    outline-offset: 2px;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: var(--primary-red);
+    border-bottom: 3px solid var(--primary-red);
+}
+/* Boutons */
+.buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary {
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid var(--primary-red);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-red);
+    border-color: var(--dark-red);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-red);
+    border: 2px solid var(--primary-red);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-red-bg);
+}
+
+.bienvenue {
+    background: rgb(189 23 44 / 0.88);
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.bienvenue h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem;
+    font-weight: bold;
+}
+
+.bienvenue p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+
+
+
+
