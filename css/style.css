@@ -58,6 +58,7 @@ header nav ul li a.active {
     color: var(--primary-red);
     border-bottom: 3px solid var(--primary-red);
 }
+
 /* Boutons */
 .buttons {
     display: flex;
@@ -169,7 +170,6 @@ header nav ul li a.active {
 body main {
     margin: 10px;
 }
-
 
 .bienvenue {
     background: rgb(189 23 44 / 0.88);
