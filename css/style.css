@@ -9,24 +9,122 @@ h1{
 
 header{
     background-color:#A8323E;   /*Couleur original sur leur site: #fa391f*/
-    padding: 25px;
+    padding: 20px 25px;
     font-family: "Raleway", Roboto, sans-serif;
     font-weight:700;
     font-size: 16px;
-}
-
-
-nav {
+    position: relative;
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    box-sizing: border-box;
 }
 
-nav a {
+.logo {
+    position: absolute;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.logo img {
+    width: 65px;
+    height: auto;
+}
+
+header .menu{
+    display: none;
+}
+
+.nav-liens {
+    flex-grow: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-left: 90px;
+}
+
+.nav-liens::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-liens a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    padding-top:20px ;
+    white-space: nowrap;
+}
+
+.nav-liens ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: max-content;
+}
+
+@media (max-width: 768px){
+    header {
+        justify-content: space-between;
+        height: 70px;
+        box-sizing: border-box;
+    }
+    .logo {
+        position: static;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    header .menu{
+        display: block;
+        background: white;
+        color: #A8323E;
+        border: none;
+        padding: 8px 14px;
+        font-weight: bold;
+        font-size:large;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .nav-liens {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        display: block;
+        transition: max-height 0.4s ease-in-out;
+        z-index: 100;
+        overflow-x: visible;
+        margin-left: 0;
+    }
+
+    .nav-liens ul{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+        gap: 15px;
+        width: auto;
+    }
+
+    .nav-liens a {
+        color: #333333;
+        white-space: normal;
+    }
+    .nav-liens.active{
+        max-height: 500px;
+    }
 }
 
 /* ===== Page Syndrome de Marfan ===== */

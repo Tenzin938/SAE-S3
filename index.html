@@ -2,21 +2,30 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Syndrome Marfans</title>
         <!--TODO: Ajouter des métadonnées pour le référencement-->
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
-            <nav>
-                <a href="index.html" style="padding: 0%;"><img src="images/logo_Marfan.jpg" style="width:75px; height: auto;" alt="Logo Marfans"></a>
-                <a href="index.html">ACCUEIL</a>
-                <a href="onglets/information.html">S'INFORMER</a>
-                <a href="onglets/soigner.html">SE SOIGNER</a>
-                <a href="onglets/quotidient.html">SON QUOTIDIEN</a>
-                <a href="onglets/droits.html">SES DROITS</a>
-                <a href="onglets/temoigner.html">TÉMOIGNER</a>
-                <a href="onglets/donner.html">JE DONNE</a>
+            <div class="logo">
+                <a href="index.html" style="padding: 0;">
+                    <img src="images/logo_Marfan.jpg" style="width:75px; height: auto;" alt="Logo Marfans">
+                </a>
+            </div>
+
+            <button class="menu">MENU</button>
+            <nav class="nav-liens">
+                <ul>
+                    <li><a href="index.html">ACCUEIL</a></li>
+                    <li><a href="onglets/information.html">S'INFORMER</a></li>
+                    <li><a href="onglets/soigner.html">SE SOIGNER</a></li>
+                    <li><a href="onglets/quotidient.html">SON QUOTIDIEN</a></li>
+                    <li><a href="onglets/droits.html">SES DROITS</a></li>
+                    <li><a href="onglets/temoigner.html">TÉMOIGNER</a></li>
+                    <li><a href="onglets/donner.html">JE DONNE</a></li>
+                </ul>
             </nav>
         </header>
 
@@ -142,8 +151,9 @@
 
         <figure id="video-explicative">
             <h3>Explication du Syndrome de Marfan</h3>
-            <iframe width="800" height="450" src="https://www.youtube.com/embed/uc31YxwNS3s?si=B2sfk90VZ26Ys0SL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="800" height="450" src="https://www.youtube.com/embed/uc31YxwNS3s?si=B2sfk90VZ26Ys0SL" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <figcaption>Vidéo explicative du syndrome réalisée par le Docteur Yves Dulac</figcaption>
         </figure>
+    <script src="java/menu.js"></script>
     </body>
 </html>
