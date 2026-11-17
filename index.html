@@ -1,159 +1,240 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Syndrome Marfans</title>
-        <!--TODO: Ajouter des métadonnées pour le référencement-->
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <a href="index.html" style="padding: 0;">
-                    <img src="images/logo_Marfan.jpg" style="width:75px; height: auto;" alt="Logo Marfans">
-                </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil – Association Marfans | Soutenir, Informer, Financer la recherche</title>
+    <meta name="description" content="Association française des syndromes de Marfan, Loeys-Dietz et apparentés. Comprendre la maladie, découvrir nos actions et rejoindre nos bénévoles.">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Passer au contenu principal</a>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="brand-link">
+            <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Logo Association Marfans">
+                <circle cx="24" cy="24" r="22" fill="#16325C" />
+                <path d="M24 37s-11-7.2-11-15.2A6.5 6.5 0 0 1 24 17a6.5 6.5 0 0 1 11 4.8C35 29.8 24 37 24 37z" fill="#A51D36" stroke="#FFFFFF" stroke-width="2" />
+            </svg>
+            <span>Association Marfans</span>
+        </a>
+
+        <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            Menu
+        </button>
+
+        <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link" aria-current="page">Accueil</a></li>
+                <li><a href="la-genetique.html" class="nav-link">S'informer : La génétique</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="soutenir.html?onglet=don" class="btn btn-primary">Je donne</a>
+                <a href="soutenir.html?onglet=adhesion" class="btn btn-outline">J'adhère</a>
+                <a href="login.html" id="nav-si-link" class="btn btn-secondary">Espace interne</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main id="main-content">
+    <!-- Section Hero unie (sans dégradé) : explication immédiate de la maladie dès l'entrée -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+            <div>
+                <h1 id="hero-title">Association Marfans : ensemble face aux syndromes de Marfan et apparentés</h1>
+                <p class="hero-lead">
+                    Le <strong>syndrome de Marfan</strong> (ainsi que le syndrome de Loeys-Dietz) est une
+                    <strong>maladie génétique rare du tissu conjonctif</strong> qui affecte principalement le
+                    <strong>cœur et l'aorte</strong>, les yeux et le squelette. Un dépistage précoce et un suivi médical
+                    adapté permettent aujourd'hui de protéger les patients et d'améliorer leur qualité de vie.
+                </p>
+                <div class="hero-actions">
+                    <a href="la-genetique.html" class="btn btn-primary">Comprendre la maladie</a>
+                    <a href="soutenir.html?onglet=don" class="btn btn-outline">Soutenir par un don</a>
+                </div>
             </div>
 
-            <button class="menu">MENU</button>
-            <nav class="nav-liens">
+            <aside class="hero-box" aria-labelledby="hero-box-title">
+                <h2 id="hero-box-title">Pourquoi agir à nos côtés depuis 1995 ?</h2>
                 <ul>
-                    <li><a href="index.html">ACCUEIL</a></li>
-                    <li><a href="onglets/information.html">S'INFORMER</a></li>
-                    <li><a href="onglets/soigner.html">SE SOIGNER</a></li>
-                    <li><a href="onglets/quotidient.html">SON QUOTIDIEN</a></li>
-                    <li><a href="onglets/droits.html">SES DROITS</a></li>
-                    <li><a href="onglets/temoigner.html">TÉMOIGNER</a></li>
-                    <li><a href="onglets/donner.html">JE DONNE</a></li>
+                    <li><strong>Accompagner</strong> les personnes concernées et leurs proches au quotidien.</li>
+                    <li><strong>Vulgariser</strong> l'information médicale et orienter vers les centres de référence.</li>
+                    <li><strong>Financer la recherche</strong> sur les pathologies aortiques et génétiques.</li>
                 </ul>
-            </nav>
-        </header>
+            </aside>
+        </div>
+    </section>
 
-        <h1>MARFANS — Ensemble face au syndrome de Marfan</h1>
+    <!-- Nos 3 missions clés -->
+    <section class="section" aria-labelledby="missions-title">
+        <div class="container">
+            <h2 id="missions-title">Nos trois missions principales</h2>
+            <div class="grid grid-3">
+                <article class="card">
+                    <h3 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        1. Soutenir les familles
+                    </h3>
+                    <p>
+                        Nos bénévoles formés animent des <strong>groupes de parole</strong>, des permanences d'écoute et des
+                        ateliers pratiques pour rompre l'isolement face à la maladie.
+                    </p>
+                    <div class="card-footer">
+                        <a href="contact.html" class="btn btn-outline btn-sm">Contacter l'écoute</a>
+                    </div>
+                </article>
 
-        <!-- SECTION PRINCIPALE -->
-        <section id="syndrome-marfan">
+                <article class="card">
+                    <h3 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        2. Informer et orienter
+                    </h3>
+                    <p>
+                        Des contenus médicaux <strong>clairs et accessibles</strong>, des vidéos sous-titrées et la carte des
+                        centres de compétence et de référence partout en France.
+                    </p>
+                    <div class="card-footer">
+                        <a href="la-genetique.html" class="btn btn-outline btn-sm">Explorer la génétique</a>
+                    </div>
+                </article>
 
+                <article class="card">
+                    <h3 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        3. Financer la recherche
+                    </h3>
+                    <p>
+                        Vos <strong>dons et adhésions</strong> permettent de soutenir directement des projets de recherche
+                        clinique et génétique menés par les équipes hospitalières partenaires.
+                    </p>
+                    <div class="card-footer">
+                        <a href="soutenir.html?onglet=don" class="btn btn-primary btn-sm">Faire un don</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-            <div class="contenu-texte">
-                <h1>Comprendre le syndrome de Marfan</h1>
+    <!-- Aperçu dynamique des prochaines activités (lien Mission 3 / API /api/activités) -->
+    <section class="section section-alt" aria-labelledby="activites-title">
+        <div class="container">
+            <div class="card-header" style="margin-bottom: var(--space-4);">
+                <div>
+                    <h2 id="activites-title">Prochains ateliers, conférences et rencontres</h2>
+                    <p style="margin-bottom: 0;">
+                        Activités ouvertes aux adhérents, proches aidants et au grand public (données synchronisées avec le futur SI).
+                    </p>
+                </div>
+                <a href="contact.html" class="btn btn-secondary">Demander une inscription</a>
+            </div>
 
-                <p>
-                    Le syndrome de Marfan est une maladie génétique rare qui affecte
-                    le tissu conjonctif, une structure essentielle qui soutient,
-                    relie et donne de l'élasticité aux différentes parties du corps.
-                    Il peut toucher plusieurs organes, notamment le cœur, les vaisseaux
-                    sanguins, les yeux, les os et les articulations.
+            <div id="public-activities-list" class="grid grid-3" aria-live="polite">
+                <!-- Rempli dynamiquement par js/accueil.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Appel à bénévolat (section aplatie sans carte superflue) -->
+    <section class="section" aria-labelledby="rejoindre-title">
+        <div class="container cta-band">
+            <div>
+                <h2 id="rejoindre-title">Vous souhaitez vous engager comme bénévole ou responsable ?</h2>
+                <p style="margin-bottom: 0;">
+                    L'association repose sur l'engagement de bénévoles formés : accueil des nouveaux adhérents, animation
+                    d'ateliers, organisation d'événements ou suivi administratif. Accédez à votre espace personnel pour indiquer
+                    vos disponibilités et consulter vos formations.
                 </p>
+            </div>
+            <div class="action-group">
+                <a href="login.html" class="btn btn-secondary">Accéder à l'espace interne SI</a>
+                <a href="soutenir.html?onglet=adhesion" class="btn btn-outline">Devenir adhérent / bénévole</a>
+            </div>
+        </div>
+    </section>
+</main>
 
-                <h2>Quelles sont les causes du syndrome de Marfan ?</h2>
-
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h2>Association Marfans</h2>
                 <p>
-                    Le syndrome de Marfan est généralement causé par une mutation du
-                    gène <strong>FBN1</strong>, responsable de la production d'une
-                    protéine appelée fibrilline. Cette protéine contribue à la solidité
-                    et au bon fonctionnement du tissu conjonctif.
-                </p>
-
-                <p>
-                    Lorsque ce gène est altéré, le tissu conjonctif peut devenir plus
-                    fragile et moins résistant. Cette fragilité explique pourquoi la
-                    maladie peut provoquer des manifestations très différentes d'une
-                    personne à l'autre. Le syndrome est souvent héréditaire, mais il
-                    peut également apparaître à la suite d'une nouvelle mutation
-                    génétique, sans antécédent familial.
-                </p>
-
-                <h2>Quels sont les principaux symptômes ?</h2>
-
-                <p>
-                    Les manifestations du syndrome de Marfan varient selon les personnes.
-                    Certaines présentent des signes légers, tandis que d'autres peuvent
-                    développer des complications importantes. Les symptômes peuvent
-                    apparaître dès l'enfance ou être remarqués plus tard.
-                </p>
-
-                <h3>Les os et les articulations</h3>
-
-                <p>
-                    Les personnes atteintes peuvent présenter une grande taille,
-                    des bras et des jambes longs, des doigts fins et allongés ainsi
-                    qu'une souplesse inhabituelle des articulations. Une déformation
-                    du thorax, une scoliose ou des pieds plats peuvent également
-                    apparaître.
-                </p>
-
-                <h3>Le cœur et les vaisseaux sanguins</h3>
-
-                <p>
-                    Les complications cardiovasculaires sont parmi les plus importantes
-                    à surveiller. L'aorte, la principale artère qui transporte le sang
-                    depuis le cœur, peut se dilater en raison de la fragilité de sa
-                    paroi. Dans les cas les plus graves, une dissection aortique,
-                    correspondant à une déchirure de la paroi de l'aorte, peut survenir.
-                    Les valves cardiaques peuvent également être touchées.
-                </p>
-
-                <h3>Les yeux</h3>
-
-                <p>
-                    Le syndrome peut entraîner une forte myopie ou un déplacement
-                    du cristallin, la lentille naturelle située à l'intérieur de l'œil.
-                    Certaines complications, comme le décollement de la rétine,
-                    peuvent menacer la vision et nécessitent une prise en charge rapide.
-                </p>
-
-                <h3>Les poumons et la colonne vertébrale</h3>
-
-                <p>
-                    Plus rarement, la maladie peut provoquer des complications
-                    pulmonaires, notamment un pneumothorax, lorsque de l'air s'accumule
-                    autour du poumon. Elle peut également affecter les membranes qui
-                    entourent la moelle épinière et entraîner des douleurs dorsales
-                    ou d'autres symptômes neurologiques.
-                </p>
-
-                <h2>Comment diagnostiquer le syndrome de Marfan ?</h2>
-
-                <p>
-                    Le diagnostic repose sur une évaluation médicale complète.
-                    Le médecin étudie les caractéristiques physiques, les antécédents
-                    familiaux et les éventuelles complications. Des examens
-                    complémentaires peuvent être réalisés, notamment une analyse
-                    génétique, une échographie cardiaque et un examen ophtalmologique.
-                </p>
-
-                <p>
-                    Un suivi spécialisé est essentiel pour détecter précocement
-                    les complications et adapter la prise en charge à chaque patient.
-                </p>
-
-                <h2>Quels traitements existent ?</h2>
-
-                <p>
-                    Il n'existe actuellement aucun traitement permettant de guérir
-                    définitivement le syndrome de Marfan ou de corriger la mutation
-                    génétique responsable de la maladie. Cependant, une surveillance
-                    régulière et des traitements adaptés permettent de prévenir
-                    certaines complications et d'améliorer la qualité de vie.
-                </p>
-
-                <p>
-                    Selon les besoins, la prise en charge peut comprendre des médicaments
-                    pour limiter les contraintes exercées sur l'aorte, des interventions
-                    chirurgicales pour traiter certaines complications cardiovasculaires,
-                    ainsi qu'un suivi ophtalmologique et orthopédique.
+                    Association française des syndromes de Marfan, Loeys-Dietz et apparentés (créée en 1995).
                 </p>
             </div>
 
+            <div>
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="la-genetique.html">S'informer : La génétique</a></li>
+                    <li><a href="contact.html">Contactez-nous !</a></li>
+                    <li><a href="soutenir.html">Adhérer ou faire un don</a></li>
+                    <li><a href="login.html">Espace bénévoles &amp; responsables</a></li>
+                </ul>
+            </div>
 
-        </section>
+            <div>
+                <h3>Réseaux sociaux</h3>
+                <ul class="social-links">
+                    <li>
+                        <a href="https://www.facebook.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Suivre l'Association Marfans sur Facebook (nouvelle fenêtre)">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Suivre l'Association Marfans sur Instagram (nouvelle fenêtre)">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Suivre l'Association Marfans sur LinkedIn (nouvelle fenêtre)">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Voir les vidéos sous-titrées sur YouTube (nouvelle fenêtre)">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            YouTube
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-        <figure id="video-explicative">
-            <h3>Explication du Syndrome de Marfan</h3>
-            <iframe width="800" height="450" src="https://www.youtube.com/embed/uc31YxwNS3s?si=B2sfk90VZ26Ys0SL" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <figcaption>Vidéo explicative du syndrome réalisée par le Docteur Yves Dulac</figcaption>
-        </figure>
-    <script src="java/menu.js"></script>
-    </body>
+        <div class="footer-bottom">
+            <span>Prototype Front-End SAE S3 – Mission 2 (Conforme WCAG 2.1 AA)</span>
+            <span>Association Marfans – Tous droits réservés</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/accueil.js"></script>
+</body>
 </html>
