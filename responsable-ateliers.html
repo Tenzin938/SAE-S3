@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Ateliers &amp; Synthèse – Association Marfans (SI)</title>
+  <meta name="description" content="Tableau de bord du responsable des ateliers : synthèse avec alertes, création/modification d'activités et gestion des inscriptions et listes d'attente.">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Passer au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Logo Association Marfans">
+          <circle cx="24" cy="24" r="22" fill="#16325C" />
+          <path d="M24 37s-11-7.2-11-15.2A6.5 6.5 0 0 1 24 17a6.5 6.5 0 0 1 11 4.8C35 29.8 24 37 24 37z" fill="#A51D36" stroke="#FFFFFF" stroke-width="2" />
+        </svg>
+        <span>Association Marfans</span>
+      </a>
+
+      <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        Menu
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Site public</a></li>
+          <li><a href="espace-benevole.html" class="nav-link">Espace Bénévole</a></li>
+          <li><a href="responsable-ateliers.html" class="nav-link" aria-current="page">Gestion Ateliers</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button type="button" id="btn-logout" class="btn btn-outline">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            Déconnexion
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="si-topbar">
+    <div class="container si-topbar-inner">
+      <div>
+        <strong>Session active :</strong> <span id="user-fullname">—</span>
+        · Profil : <strong id="user-role-badge">—</strong>
+      </div>
+      <div class="action-group">
+        <button type="button" id="btn-reset-demo" class="btn btn-outline btn-sm">
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+          Réinitialiser les données démo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="page-banner">
+      <div class="container card-header">
+        <div>
+          <h1>Synthèse &amp; Gestion des activités (F3, F5, F8)</h1>
+          <p style="margin-bottom: 0;">
+            Tableau de pilotage du responsable des ateliers : alertes sur les places, listes d'attente et bénévoles manquants.
+          </p>
+        </div>
+        <button type="button" id="btn-new-activity" class="btn btn-primary">
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Créer une activité
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="admin-stats" class="stats-grid" aria-live="polite"></div>
+
+        <div id="admin-feedback" tabindex="-1" aria-live="polite"></div>
+
+        <!-- Filtre rapide -->
+        <div class="filter-bar" role="search" aria-label="Filtrer la synthèse des activités">
+          <div class="form-group">
+            <label for="admin-filter-statut" class="form-label">Filtrer par statut</label>
+            <select id="admin-filter-statut" class="form-control">
+              <option value="all">Toutes les activités</option>
+              <option value="planifiée">Planifiées uniquement</option>
+              <option value="annulée">Annulées</option>
+              <option value="alertes">Avec alertes (bénévoles manquants / attente)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="admin-search" class="form-label">Rechercher par intitulé</label>
+            <input type="search" id="admin-search" class="form-control" placeholder="Ex : fatigue, MDPH...">
+          </div>
+        </div>
+
+        <!-- Tableau Synthèse (F8) -->
+        <h2>Vue synthèse des activités et alertes</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Activité &amp; Type</th>
+                <th>Date &amp; Lieu</th>
+                <th>Participants</th>
+                <th>Bénévoles</th>
+                <th>Alertes &amp; Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-activities-tbody">
+              <!-- Rempli par js/ateliers.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modale Création / Modification d'activité (F3) -->
+  <div id="modal-activity" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-activity-title" hidden>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="modal-activity-title" style="margin-bottom: 0;">Créer une activité</h2>
+        <button type="button" class="btn btn-outline btn-sm modal-close" data-close="modal-activity" aria-label="Fermer la fenêtre">Fermer</button>
+      </div>
+      <div id="modal-activity-error" class="alert alert-danger" hidden role="alert"></div>
+      <form id="form-activity" novalidate>
+        <input type="hidden" id="act-id">
+        <div class="form-group">
+          <label for="act-intitule" class="form-label">Intitulé de l'activité <span class="required-mark">*</span></label>
+          <input type="text" id="act-intitule" class="form-control" required>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="form-group">
+            <label for="act-type" class="form-label">Type d'activité <span class="required-mark">*</span></label>
+            <select id="act-type" class="form-control"></select>
+          </div>
+          <div class="form-group">
+            <label for="act-lieu" class="form-label">Lieu <span class="required-mark">*</span></label>
+            <select id="act-lieu" class="form-control"></select>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="form-group">
+            <label for="act-debut" class="form-label">Date et heure de début <span class="required-mark">*</span></label>
+            <input type="datetime-local" id="act-debut" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="act-fin" class="form-label">Date et heure de fin <span class="required-mark">*</span></label>
+            <input type="datetime-local" id="act-fin" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="form-group">
+            <label for="act-capacite" class="form-label">Capacité max. participants</label>
+            <input type="number" id="act-capacite" class="form-control" min="1" placeholder="Vide si accès libre">
+          </div>
+          <div class="form-group">
+            <label for="act-benevoles" class="form-label">Bénévoles requis</label>
+            <input type="number" id="act-benevoles" class="form-control" min="0" value="2">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-option" style="display: flex; align-items: center; gap: var(--space-2); cursor: pointer;">
+            <input type="checkbox" id="act-inscription" checked>
+            <span>Inscription préalable obligatoire (décocher pour événement en accès libre)</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="act-description" class="form-label">Description (contenu, matériel, salle)</label>
+          <textarea id="act-description" rows="3" class="form-control"></textarea>
+        </div>
+
+        <div class="action-group">
+          <button type="submit" class="btn btn-primary">Enregistrer l'activité</button>
+          <button type="button" class="btn btn-outline modal-close" data-close="modal-activity">Annuler</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modale Gestion des Inscriptions / Fréquentation (F5) -->
+  <div id="modal-inscriptions" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-inscriptions-title" hidden>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="modal-inscriptions-title" style="margin-bottom: 0;">Inscriptions &amp; Liste d'attente</h2>
+        <button type="button" class="btn btn-outline btn-sm modal-close" data-close="modal-inscriptions" aria-label="Fermer la fenêtre">Fermer</button>
+      </div>
+      <div id="inscriptions-modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; margin-top: 0; padding-top: 0;">
+        <span>Espace interne SI – Association Marfans (Prototype Mission 2 préparant API Mission 4)</span>
+        <a href="index.html">Retour au site public</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/ateliers.js"></script>
+</body>
+</html>
