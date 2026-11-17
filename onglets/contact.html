@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – Association Marfans</title>
+    <meta name="description" content="Contacter l'Association Marfans : demande d'information, d'écoute, d'inscription à une activité ou renseignement sur le bénévolat.">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Passer au contenu principal</a>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="brand-link">
+            <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Logo Association Marfans">
+                <circle cx="24" cy="24" r="22" fill="#16325C" />
+                <path d="M24 37s-11-7.2-11-15.2A6.5 6.5 0 0 1 24 17a6.5 6.5 0 0 1 11 4.8C35 29.8 24 37 24 37z" fill="#A51D36" stroke="#FFFFFF" stroke-width="2" />
+            </svg>
+            <span>Association Marfans</span>
+        </a>
+
+        <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            Menu
+        </button>
+
+        <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="la-genetique.html" class="nav-link">S'informer : La génétique</a></li>
+                <li><a href="contact.html" class="nav-link" aria-current="page">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="soutenir.html?onglet=don" class="btn btn-primary">Je donne</a>
+                <a href="soutenir.html?onglet=adhesion" class="btn btn-outline">J'adhère</a>
+                <a href="login.html" id="nav-si-link" class="btn btn-secondary">Espace interne</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main id="main-content">
+    <section class="page-banner">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="index.html">Accueil</a> &rsaquo; <span aria-current="page">Contact</span>
+            </nav>
+            <h1>Contacter l'Association Marfans</h1>
+            <p style="margin-bottom: 0;">
+                Une question, un besoin d'écoute ou une demande d'inscription à une activité ? Écrivez-nous.
+                Les champs marqués d'un astérisque (<span class="required-mark">*</span>) sont obligatoires.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container grid grid-2" style="align-items: start;">
+            <div class="card">
+                <h2>Envoyer un message</h2>
+                <div id="contact-feedback" tabindex="-1" aria-live="polite"></div>
+
+                <form id="form-contact" novalidate>
+                    <div class="form-group">
+                        <label for="contact-nom" class="form-label">Nom et prénom <span class="required-mark">*</span></label>
+                        <input type="text" id="contact-nom" name="nom" class="form-control" autocomplete="name" aria-required="true" aria-describedby="contact-nom-err">
+                        <span id="contact-nom-err" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email" class="form-label">Adresse e-mail <span class="required-mark">*</span></label>
+                        <input type="email" id="contact-email" name="email" class="form-control" autocomplete="email" placeholder="exemple@domaine.fr" aria-required="true" aria-describedby="contact-email-hint contact-email-err">
+                        <span id="contact-email-hint" class="form-hint">Format attendu : nom@domaine.fr</span>
+                        <span id="contact-email-err" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-sujet" class="form-label">Objet de votre demande <span class="required-mark">*</span></label>
+                        <select id="contact-sujet" name="sujet" class="form-control" aria-required="true" aria-describedby="contact-sujet-err">
+                            <option value="">-- Sélectionnez un objet --</option>
+                            <option value="inscription_activite">Demande d'inscription à un atelier / conférence</option>
+                            <option value="ecoute">Demande d'écoute ou d'orientation médicale</option>
+                            <option value="benevolat">Renseignement sur le bénévolat</option>
+                            <option value="autre">Autre question générale</option>
+                        </select>
+                        <span id="contact-sujet-err" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message" class="form-label">Votre message <span class="required-mark">*</span></label>
+                        <textarea id="contact-message" name="message" rows="5" class="form-control" aria-required="true" aria-describedby="contact-message-hint contact-message-err"></textarea>
+                        <span id="contact-message-hint" class="form-hint">Minimum 15 caractères pour nous aider à mieux vous orienter.</span>
+                        <span id="contact-message-err" class="form-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary">Envoyer le message</button>
+                </form>
+            </div>
+
+            <aside aria-labelledby="coord-title">
+                <h2 id="coord-title">Nos coordonnées</h2>
+                <p>
+                    <strong>Association Marfans</strong><br>
+                    Hôpital Bichat – Centre de référence Marfan<br>
+                    46 rue Henri Huchard, 75018 Paris
+                </p>
+                <p>
+                    <strong>Permanence téléphonique :</strong> du lundi au vendredi, de 14 h à 18 h.
+                </p>
+                <div class="alert alert-info" style="margin-bottom: 0;">
+                    Vous souhaitez <strong>adhérer</strong> ou <strong>faire un don</strong> ?
+                    Rendez-vous sur la page <a href="soutenir.html">Soutenir l'association</a>.
+                </div>
+            </aside>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h2>Association Marfans</h2>
+                <p>Association française des syndromes de Marfan, Loeys-Dietz et apparentés (créée en 1995).</p>
+            </div>
+            <div>
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="la-genetique.html">S'informer : La génétique</a></li>
+                    <li><a href="contact.html">Contactez-nous !</a></li>
+                    <li><a href="soutenir.html">Adhérer ou faire un don</a></li>
+                    <li><a href="login.html">Espace bénévoles &amp; responsables</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Réseaux sociaux</h3>
+                <ul class="social-links">
+                    <li>
+                        <a href="https://www.facebook.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Suivre l'Association Marfans sur Facebook (nouvelle fenêtre)">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Suivre l'Association Marfans sur Instagram (nouvelle fenêtre)">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Suivre l'Association Marfans sur LinkedIn (nouvelle fenêtre)">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Voir les vidéos sous-titrées sur YouTube (nouvelle fenêtre)">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            YouTube
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Prototype Front-End SAE S3 – Mission 2 (Conforme WCAG 2.1 AA)</span>
+            <span>Association Marfans – Tous droits réservés</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/forms.js"></script>
+</body>
+</html>
