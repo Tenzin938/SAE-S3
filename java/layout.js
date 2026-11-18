@@ -1,7 +1,7 @@
-/* ========================================================================== */
- /*  Navigation & Composants Globaux, Gère le menu mobile accessible,
- la barre de session SI et les interactions communes. */
-
+/* ==========================================================================
+   Navigation & Composants Globaux - Association Marfans
+   Gère le menu mobile accessible, la barre de session SI et les interactions communes.
+   ========================================================================== */
 
 (function () {
   'use strict';
